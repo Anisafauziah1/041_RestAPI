@@ -38,7 +38,7 @@ fun HomeStatus(
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
     onDeleteClick: (Kontak) -> Unit = {},
-
+    onDetailClick: (Int) -> Unit
 
 ){
     when (kontakUIState){
