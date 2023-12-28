@@ -37,6 +37,8 @@ fun HomeStatus(
     kontakUIState: KontakUIState,
     retryAction: () -> Unit,
     modifier: Modifier = Modifier,
+    onDeleteClick: (Kontak) -> Unit = {},
+
 
 ){
     when (kontakUIState){
