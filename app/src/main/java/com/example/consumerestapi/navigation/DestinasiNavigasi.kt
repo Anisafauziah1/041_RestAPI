@@ -1,3 +1,7 @@
 package com.example.consumerestapi.navigation
 
-interface DestinasiNavigasi {}
+interface DestinasiNavigasi {
+    val route : String
+
+    val titleRes : String
+}
