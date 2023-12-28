@@ -5,6 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.setValue
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.example.consumerestapi.model.Kontak
 import com.example.consumerestapi.repository.KontakRepository
 import kotlinx.coroutines.launch
 import java.lang.Exception
@@ -36,7 +37,16 @@ data class InsertUiState(
 data class InsertUiEvent(
     val id: Int = 0,
     val nama: String = "",
+    val email: String = "",
     val telepon: String = "",
-    val alamat: String = "",
 
 )
+
+fun InsertUiEvent.toKontak(): Kontak = Kontak(
+    id = id,
+    nama = nama,
+    email = email,
+    telepon = telepon,
+)
+
+fun Kon
