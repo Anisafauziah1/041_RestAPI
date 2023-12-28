@@ -93,7 +93,8 @@ fun HomeScreen(
             onDeleteClick = {
                 viewModel.deleteKontak(it.id)
                 viewModel.getKontak()
-            })
+            }
+        )
     }
 }
 @Composable
@@ -149,8 +150,8 @@ fun OnLoading(modifier: Modifier = Modifier){
 
 @Composable
 fun KontakLayout(
-    kontak : List<Kontak>,
-    modifier: Modifier = Modifier
+    kontak: List<Kontak>,
+    modifier: Modifier = Modifier,
     onDetailClick: (Kontak) -> Unit,
     onDeleteClick: (Kontak) -> Unit = {}
 ){
@@ -160,9 +161,11 @@ fun KontakLayout(
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ){
         items(kontak){kontak ->
-            KontakCard(kontak = kontak, modifier = Modifier
-                .fillMaxWidth()
-                .clickable { onDetailClick(kontak) },
+            KontakCard(
+                kontak = kontak,
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .clickable { onDetailClick(kontak) },
                 onDeleteClick = {
                     onDeleteClick(kontak)
                 }
@@ -201,7 +204,7 @@ fun KontakCard(
                     )
                 }
                 Text(
-                    text = kontak.telpon,
+                    text = kontak.nohp,
                     style = MaterialTheme.typography.titleMedium,
                 )
             }

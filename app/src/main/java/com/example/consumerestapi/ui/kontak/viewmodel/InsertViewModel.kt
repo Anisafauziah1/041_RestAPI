@@ -10,7 +10,10 @@ import com.example.consumerestapi.repository.KontakRepository
 import kotlinx.coroutines.launch
 import java.lang.Exception
 
-class InsertViewModel(private val kontakRepository: KontakRepository) : ViewModel() {
+class InsertViewModel(
+    private val kontakRepository: KontakRepository,
+    val insertKontakState: InsertUiState
+) : ViewModel() {
 
     var insertKotakState by mutableStateOf(InsertUiState())
         private set
@@ -46,7 +49,7 @@ fun InsertUiEvent.toKontak(): Kontak = Kontak(
     id = id,
     nama = nama,
     email = email,
-    telepon = telepon,
+    nohp = telepon,
 )
 
 fun Kontak.toUiStateKontak(): InsertUiState = InsertUiState(
@@ -57,5 +60,5 @@ fun Kontak.toInsertUiEvent(): InsertUiEvent = InsertUiEvent(
     id = id,
     nama = nama,
     email = email,
-    telepon = telepon,
+    telepon = nohp,
 )

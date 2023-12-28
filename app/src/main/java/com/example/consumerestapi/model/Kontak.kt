@@ -1,14 +1,18 @@
 package com.example.consumerestapi.model
 
+import android.provider.ContactsContract.CommonDataKinds.Email
+import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 
-@Serializable //supaya bisa menggunakan converter dari json
-data class Kontak (
+@Serializable
+data class Kontak(
     val id: Int,
-    //    @SerialName(value = "nama") ==== ini untuk convert dari gson tetapi masih harus menambahkan dependensi (jika namanya tidak sesuai dengan yang ada di web)
+    @SerialName(value = "nama")
     val nama: String,
-    val alamat: String,
-    val telpon: String
+    @SerialName(value = "email")
+    val email: String,
+    @SerialName(value = "nohp")
+    val nohp: String,
 )
 
 
